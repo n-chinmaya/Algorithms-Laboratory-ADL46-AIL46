@@ -53,4 +53,5 @@ int main(){
     printf("Optimal Set : ");
     find_solution(6);
     printf("\n");
+    return 0;
 }
