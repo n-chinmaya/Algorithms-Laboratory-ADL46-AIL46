@@ -16,30 +16,21 @@ void merge(int arr[], int l, int m, int r) {
     
     // Merge the temporary arrays back into arr[l..r]
     int i = 0, j = 0, k = l;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
+
+    while (i < n1 && j < n2){
+        if (L[i] <= R[j])
+            arr[k++] = L[i++];
+        else
+            arr[k++] = R[j++];
     }
     
     // Copy the remaining elements of L[], if any
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
+    while (i < n1)
+        arr[k++] = L[i++];
     
     // Copy the remaining elements of R[], if any
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
+    while (j < n2)
+        arr[k++] = R[j++];
 }
 
 void mergeSort(int arr[], int l, int r) {
@@ -61,7 +52,7 @@ void printArray(int arr[], int size) {
     printf("\n");
 }
 
-void main() {
+int main() {
     int arr[] = {12, 11, 13, 5, 6, 7};
     int arr_size = sizeof(arr) / sizeof(arr[0]);
     
@@ -72,7 +63,9 @@ void main() {
     mergeSort(arr, 0, arr_size - 1);
     end = clock();
 
-    printf("Time taken by program is : %f seconds",((float)(end - start)) / CLOCKS_PER_SEC);
+    printf("Time taken by program is : %f seconds\n",((float)(end - start)) / CLOCKS_PER_SEC);
 
     printArray(arr, arr_size);
+
+    return 0;
 }
