@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 void swap(int *a, int *b){
     int t = *a; 
@@ -24,9 +25,15 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-void main() {
+int main() {
     int arr[] = {10, 7, 8, 9, 1, 5}, n = 6;
+
+    clock_t start,end;
+    start=clock();
     quickSort(arr, 0, n - 1);
-    for (int i = 0; i < n; i++)
+    end=clock();
+    printf("Time taken by Quick Sort : %f seconds\n",(float)(end-start)/CLOCKS_PER_SEC);
+    for(int i = 0; i < n; i++)
         printf("%d ", arr[i]);
+    return 0;
 }
